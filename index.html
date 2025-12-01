@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAB VII – Cinta, Takut, Berharap & Tawakal kepada Allah SWT</title>
+  <style>
+    /* RESET & GLOBAL */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; font-family: sans-serif; }
+    body { background: #fffcf7; color: #333; position: relative; }
+
+    /* Global Dekorasi (misalnya awan) */
+    .decor { position: absolute; pointer-events: none; opacity: 0.8; }
+    .cloud { width: 100px; }
+    .cloud1 { top: 20px; left: 10%; }
+    .cloud2 { top: 50px; right: 10%; }
+
+    /* Extra global dekorasi bisa ditambahkan di sini jika perlu */
+
+    /* Screen Container */
+    .screen {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100vh;
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 20px;
+    }
+    .active { display: flex; animation: fadeIn 0.5s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* START SCREEN */
+    #start-screen {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      position: relative;
+    }
+    #start-title { font-size: 24px; margin-bottom: 20px; font-weight: bold; }
+    #mulai-btn {
+      font-size: 28px; padding: 10px 20px;
+      border: none; border-radius: 8px;
+      background: #ffeb3b; cursor: pointer; transition: 0.3s;
+    }
+    #mulai-btn:hover { transform: scale(1.05); }
+    #start-info { margin-top: 15px; font-size: 14px; }
+
+    /* Tambahan gambar dekorasi di Start Screen */
+    #start-top {
+      position: absolute; top: 5px; left: 50%;
+      transform: translateX(-50%); width: 120px;
+    }
+    #start-bottom {
+      position: absolute; bottom: 5px; right: 5px; width: 100px;
+    }
+
+    /* COUNTDOWN SCREEN */
+    #countdown-screen {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      position: relative;
+      flex-direction: column;
+    }
+    #countdown-instruction { font-size: 20px; margin-bottom: 20px; }
+    #countdown-btn {
+      font-size: 48px; padding: 20px 30px;
+      border-radius: 50%; border: none;
+      background: #ffeb3b; cursor: pointer; transition: 0.3s;
+    }
+    #countdown-btn:hover { transform: scale(1.05); }
+    /* Dekorasi countdown: sudah ada count-decor dan tambahan count-bottom */
+    #countdown-decor { position: absolute; width: 100px; top: 20%; }
+    .left { left: 5%; }
+    .right { right: 5%; }
+    #count-bottom {
+      position: absolute; bottom: 10px; left: 50%;
+      transform: translateX(-50%); width: 120px;
+    }
+
+    /* CATEGORY SCREEN */
+    #category-screen {
+      background: linear-gradient(135deg, #cfd9df, #e2ebf0);
+      position: relative;
+      flex-direction: column;
+    }
+    #category-title { font-size: 24px; margin-bottom: 30px; }
+    .category-btn {
+      font-size: 20px; margin: 10px; padding: 15px 20px;
+      border: none; border-radius: 8px;
+      background: #ffeb3b; cursor: pointer; transition: 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .category-btn:hover { transform: scale(1.05); }
+    .option-icon { width: 40px; height: 40px; margin: 0 10px; }
+    .icon-left { order: -1; }
+    .icon-right { order: 1; }
+    /* Tambahan dekorasi di Category Screen */
+    #category-decor {
+      position: absolute; bottom: 10px; right: 10px; width: 100px;
+    }
+
+    /* CONTENT SCREEN */
+    #content-screen {
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      position: relative; padding: 20px;
+    }
+    #content-screen h1 { font-size: 24px; margin-bottom: 20px; }
+    #content-img {
+      width: 80%; max-width: 300px; border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    #content-text { font-size: 18px; margin-bottom: 20px; text-align: justify; }
+    #back-btn {
+      font-size: 20px; padding: 10px 15px;
+      border: none; border-radius: 8px;
+      background: #ffeb3b; cursor: pointer; transition: 0.3s;
+    }
+    #back-btn:hover { transform: scale(1.05); }
+    /* Tambahan dekorasi di Content Screen */
+    #content-decor { position: absolute; top: 10px; right: 10px; width: 80px; }
+    #content-decor2 { position: absolute; bottom: 10px; left: 10px; width: 80px; }
+  </style>
+</head>
+<body>
+  <!-- GLOBAL DEKORASI: Awan -->
+  <img src="cloud1.png" alt="Awan" class="decor cloud cloud1">
+  <img src="cloud2.png" alt="Awan" class="decor cloud cloud2">
+  
+  <!-- START SCREEN -->
+  <div id="start-screen" class="screen active">
+    <!-- Tambahan dekorasi Start Screen -->
+    <img src="start-top.png" alt="Dekorasi Atas" id="start-top" class="decor">
+    
+    <div id="start-title">
+      BAB VII – Cinta, Takut, Berharap & Tawakal kepada Allah SWT
+    </div>
+    <button id="mulai-btn">Mulai</button>
+    <div id="start-info">
+      Rifan Rizky Fadillah | 10.1
+    </div>
+    <img src="start-side.png" alt="Dekorasi Samping" id="start-side" class="decor">
+    <img src="start-bottom.png" alt="Dekorasi Bawah" id="start-bottom" class="decor">
+  </div>
+
+  <!-- COUNTDOWN SCREEN -->
+  <div id="countdown-screen" class="screen">
+    <div id="countdown-instruction">
+       <img src="count-decor.png"
+    </div>
+    <button id="countdown-btn">3</button>
+    <img src="count-decor.png" alt="Dekorasi Countdown" id="countdown-decor" class="decor left">
+    <img src="count-bottom.png" alt="Dekorasi Countdown Bawah" id="count-bottom" class="decor">
+  </div>
+
+  <!-- CATEGORY SCREEN -->
+      <img src="start-side.png" alt="Dekorasi Samping" id="start-side" class="decor">
+    <img src="start-bottom.png" alt="Dekorasi Bawah" id="start-bottom" class="decor">
+  
+  
+  <div id="category-screen" class="screen">
+    <div id="category-title">Click untuk penjelasan</div>
+    <button class="category-btn" data-category="cinta">
+      <img src="option1.png" alt="Icon" class="option-icon icon-left">
+      Cinta kepada Allah
+    </button>
+    <button class="category-btn" data-category="takut">
+      Takut kepada Allah
+      <img src="option2.png" alt="Icon" class="option-icon icon-right">
+    </button>
+    <button class="category-btn" data-category="harap">
+      <img src="option3.png" alt="Icon" class="option-icon icon-left">
+      Berharap kepada Allah
+    </button>
+    <button class="category-btn" data-category="tawakal">
+      Tawakal kepada Allah
+      <img src="option4.png" alt="Icon" class="option-icon icon-right">
+    </button>
+    <img src="category-decor.png" alt="Dekorasi Category" id="category-decor" class="decor">
+  </div>
+
+  <!-- CONTENT SCREEN -->
+  <div id="content-screen" class="screen">
+    <h1 id="content-title"></h1>
+    <img id="content-img" src="" alt="">
+    <p id="content-text"></p>
+    <button id="back-btn">Kembali</button>
+    <img src="content-decor.png" alt="Dekorasi Content" id="content-decor" class="decor">
+    <img src="content-decor2.png" alt="Dekorasi Content Tambahan" id="content-decor2" class="decor">
+  </div>
+
+  <!-- SCRIPT TANPA AUDIO -->
+  <script>
+    // Fungsi helper untuk menampilkan screen
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(sc => sc.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tampilkan Start Screen dulu
+      showScreen('start-screen');
+
+      // Countdown state
+      let countdownState = 3;
+
+      // Data materi (dapat diperpanjang sesuai kebutuhan)
+      const materi = {
+        cinta: {
+          title: "Cinta kepada Allah",
+          image: "cinta.jpg",
+          text: "Cinta kepada Allah adalah fondasi utama dalam keimanan. Dengan mencintai-Nya, hati kita tergerak untuk senantiasa mendekat melalui ibadah, amal kebaikan, dan peningkatan akhlak. Cinta ini menginspirasi kita untuk mengikuti perintah-Nya, menjauhi larangan-Nya, dan menjadi pribadi yang selalu bersyukur."
+                + "\n\nDalam kehidupan sehari-hari, cinta kepada Allah diwujudkan lewat salat, zikir, dan membaca Al-Qur'an. Semakin besar cinta kita kepada-Nya, semakin kuat pula keimanan dan semangat kita untuk berbuat kebaikan."
+        },
+        takut: {
+          title: "Takut kepada Allah",
+          image: "takut.jpg",
+          text: "Takut kepada Allah adalah perasaan hormat dan kesadaran mendalam akan kebesaran-Nya. Rasa takut ini mendorong kita untuk selalu berhati-hati dalam setiap tindakan, menjauhi dosa, dan memperbaiki diri jika terjerumus dalam kesalahan."
+                + "\n\nDengan rasa takut yang benar, kita akan selalu ingat bahwa setiap perbuatan akan dipertanggungjawabkan. Hal ini membuat kita lebih disiplin dalam menjalankan ibadah dan berusaha menjaga moralitas."
+        },
+        harap: {
+          title: "Berharap kepada Allah",
+          image: "harap.jpg",
+          text: "Berharap kepada Allah berarti memiliki keyakinan bahwa setiap doa dan usaha tidak akan sia-sia. Harapan inilah yang menumbuhkan semangat optimisme dalam menghadapi berbagai cobaan dan tantangan hidup."
+                + "\n\nKita percaya bahwa Allah selalu menyediakan jalan keluar terbaik, sehingga walaupun menghadapi kesulitan, hati tetap tegar dan penuh rasa syukur atas segala karunia yang telah diberikan."
+        },
+        tawakal: {
+          title: "Tawakal kepada Allah",
+          image: "tawakal.jpg",
+          text: "Tawakal adalah sikap berserah diri setelah berusaha maksimal. Setelah melakukan segala ikhtiar, kita menyerahkan hasilnya kepada Allah dengan penuh keyakinan bahwa Dia lebih tahu apa yang terbaik bagi kita."
+                + "\n\nSikap tawakal membuat hati menjadi tenang, karena kita menyadari bahwa apapun yang terjadi adalah kehendak-Nya. Dengan demikian, kita belajar untuk sabar dan selalu bersyukur atas setiap ketentuan yang ada."
+        }
+      };
+
+      // Ambil elemen
+      const mulaiBtn = document.getElementById('mulai-btn');
+      const countdownBtn = document.getElementById('countdown-btn');
+      const countdownInstruction = document.getElementById('countdown-instruction');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      const backBtn = document.getElementById('back-btn');
+
+      // Event: Klik tombol Mulai → pindah ke Countdown Screen
+      mulaiBtn.addEventListener('click', () => {
+        countdownState = 3;
+        updateCountdown();
+        showScreen('countdown-screen');
+      });
+
+      // Event: Klik tombol Countdown → decrement manual
+      countdownBtn.addEventListener('click', () => {
+        if (countdownState > 0) {
+          countdownState--;
+          updateCountdown();
+        }
+        if (countdownState === 0) {
+          showScreen('category-screen');
+        }
+      });
+
+      // Update tampilan countdown
+      function updateCountdown() {
+        countdownBtn.textContent = countdownState;
+        if (countdownState === 3) {
+          countdownInstruction.textContent = "";
+          
+        } else if (countdownState === 2) {
+          countdownInstruction.textContent = "";
+        } else if (countdownState === 1) {
+          countdownInstruction.textContent = "";
+        } else {
+          countdownInstruction.textContent = "";
+        }
+      }
+
+      // Event: Klik tombol kategori
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.getAttribute('data-category');
+          showContent(category);
+        });
+      });
+
+      // Tampilkan konten materi berdasarkan kategori yang dipilih
+      function showContent(category) {
+        const data = materi[category];
+        document.getElementById('content-title').textContent = data.title;
+        document.getElementById('content-img').src = data.image;
+        document.getElementById('content-img').alt = data.title;
+        document.getElementById('content-text').textContent = data.text;
+        showScreen('content-screen');
+      }
+
+      // Event: Klik tombol Kembali → kembali ke Category Screen
+      backBtn.addEventListener('click', () => {
+        showScreen('category-screen');
+      });
+    });
+  </script>
+</body>
+</html>
